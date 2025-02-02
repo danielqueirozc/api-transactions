@@ -6,7 +6,7 @@
     "dev": "nodemon --exec ts-node-dev src/app.ts",
     "format": "prettier --write \"src/**/*.{js,ts}\"",
     "format:check": "prettier --check \"src/**/*.{js,ts}\"",
-     "lint": "eslint src",
+    "lint": "eslint src",
     "lint:fix": "eslint src --fix"
   },
   "keywords": [],
@@ -14,7 +14,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "fastify": "^5.2.1"
+    "fastify": "^5.2.1",
+    "knex": "^3.1.0",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@types/node": "^22.13.0",
