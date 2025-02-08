@@ -1,29 +1,10 @@
 import fastify from 'fastify'
 import { knex } from './database'
+import { transactionsRoutes } from './routes/transactions'
 
 const app = fastify()
 
-app.get('/hello', async (req, res) => {
-  // const tables = await knex('sqlite_schema').select('*')
-
-  // return tables
-
-  // npx knex migrate:latest
-
-  //  const transaction = knex('transactions').insert({
-  //     id: crypto.randomUUID(),
-  //     title: 'New transaction',
-  //     amount: 5000,
-  //    }).returning('*')
-
-  //    return transaction
-
-  const transactions = await knex('transactions')
-    .where('amount', '>', 5000)
-    .select('*')
-
-  return transactions
-})
+app.register(transactionsRoutes, { prefix: '/transactions' })
 
 app
   .listen({
@@ -32,3 +13,4 @@ app
   .then(() => {
     console.log('Server running on port 3333')
   })
+ 
