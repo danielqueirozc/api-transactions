@@ -1,20 +1,21 @@
 import fastify from 'fastify'
-import { knex } from './database'
 import { transactionsRoutes } from './routes/transactions'
 import cookie from '@fastify/cookie'
 
-
-
-const app = fastify()
+export const app = fastify()
 
 app.register(cookie)
+
+// app.addHook('preHandler', async (request, reply) => {
+//   const sessionId = request.cookies.sessionId
+
+//   if (!sessionId) {
+//     return reply.status(401).send({
+//       error: 'Unauthorized',
+//     })
+//   }
+// }) hook global, funciona em todas as rotas
+
 app.register(transactionsRoutes, { prefix: '/transactions' })
 
-app
-  .listen({
-    port: 3333,
-  })
-  .then(() => {
-    console.log('Server running on port 3333')
-  })
- 
+
