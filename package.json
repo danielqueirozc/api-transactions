@@ -8,7 +8,8 @@
     "format:check": "prettier --check \"src/**/*.{js,ts}\"",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "test": "vitest"
+    "test": "vitest",
+    "knex": "knex"
   },
   "keywords": [],
   "author": "",
